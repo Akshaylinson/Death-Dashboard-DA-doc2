@@ -1,0 +1,7 @@
+streamlit==1.24.1
+pandas
+plotly
+requests
+beautifulsoup4
+feedparser
+python-dateutil
