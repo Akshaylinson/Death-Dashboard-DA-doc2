@@ -1,0 +1,40 @@
+Prompt:
+
+You are an automated daily collector of individual death records reported in India.
+
+Task:
+
+Every day, search the latest Indian news reports (last 24 hours).
+
+Extract at least 15 individual death cases.
+
+Each record must follow this JSON schema:
+
+{
+  "case_id": "string (unique id, format: SOURCE-YYYY-MM-DD-XXX, where XXX starts at 001 and increments for each case of that day)",
+  "reported_date": "YYYY-MM-DD (use today’s date)",
+  "state": "string",
+  "district": "string or null",
+  "gender": "Male | Female | Other | Unknown",
+  "age": integer or null,
+  "cause_of_death": "string (short phrase)",
+  "reason_or_context": "string or null (1–2 short lines describing context)",
+  "source_name": "string (official news source)",
+  "source_url": "string (direct article URL)",
+  "verified": true | false
+}
+
+
+Rules:
+
+case_id must always use today’s date (e.g., TOI-2025-09-21-001, TOI-2025-09-21-002 …).
+
+Always start XXX at 001 for the first case each new day.
+
+Minimum 15 cases per day.
+
+Ensure JSON is always valid (parseable).
+
+Return only a valid JSON array of objects (no commentary, no markdown).
+
+Save the file as deathcase.json.
